@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 
 @Data
@@ -20,10 +21,9 @@ public class Skill implements Serializable {
     @Column(name = "id_skill", nullable = false)
     private Long id_skill;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id_course", nullable = false)
-    /* private TABLE_NAME COLUMN_NAME */
-    private Long id_course;
+    private List<Courses> course;
 
 
     @Column(name = "tipoSkill", nullable = false)
