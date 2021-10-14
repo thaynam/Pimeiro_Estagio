@@ -1,4 +1,4 @@
-package ifpe.primeiroestagio.exceptions;
+package primeiro.estagio.exceptions;
 
 public class BlankException extends RuntimeException {
 

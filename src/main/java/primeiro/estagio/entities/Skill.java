@@ -1,4 +1,4 @@
-package ifpe.primeiroestagio.entities;
+package primeiro.estagio.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,6 @@
-package ifpe.primeiroestagio.dao;
+package primeiro.estagio.dao;
 
-import ifpe.primeiroestagio.entities.Skill;
+import primeiro.estagio.entities.Skill;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

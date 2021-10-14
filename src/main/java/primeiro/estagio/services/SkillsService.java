@@ -1,11 +1,13 @@
-package ifpe.primeiroestagio.services;
+package primeiro.estagio.services;
 
-import ifpe.primeiroestagio.dao.SkillsDAO;
-import ifpe.primeiroestagio.entities.Skill;
-import ifpe.primeiroestagio.exceptions.BlankException;
+import primeiro.estagio.dao.SkillsDAO;
+import primeiro.estagio.entities.Skill;
+import primeiro.estagio.exceptions.BlankException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class SkillsService {
@@ -14,20 +16,26 @@ public class SkillsService {
     private SkillsDAO skillsDAO;
 
     public void tosave(Skill skill) {
-
+        skillsDAO.save(skill);
 
         /* validação */
-        if (skill.getDataSkill() == "" || skill.getNomeSkill() == "" || skill.getResumoSkill() == "" || skill.getTipoSkill() == "") {
+        /*if (skill.getDataSkill() == "" || skill.getNomeSkill() == "" || skill.getResumoSkill() == "" || skill.getTipoSkill() == "") {
             throw new BlankException("O campo está em branco!");
-        }
+        }*/
 
-
-        /* save */
-        try {
+        /* save & exceptions */
+        /*try {
             skillsDAO.save(skill);
         } catch (DataIntegrityViolationException e) {
-
             skillsDAO.save(skill);
-        }
+        }*/
+    }
+
+    public List<Skill> findAll() {
+        return skillsDAO.findAll();
+    }
+
+    public Skill findId(Long id) {
+        return skillsDAO.findById(id).get();
     }
 }
