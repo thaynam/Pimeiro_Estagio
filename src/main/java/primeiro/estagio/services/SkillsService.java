@@ -17,18 +17,6 @@ public class SkillsService {
 
     public void tosave(Skill skill) {
         skillsDAO.save(skill);
-
-        /* validação */
-        /*if (skill.getDataSkill() == "" || skill.getNomeSkill() == "" || skill.getResumoSkill() == "" || skill.getTipoSkill() == "") {
-            throw new BlankException("O campo está em branco!");
-        }*/
-
-        /* save & exceptions */
-        /*try {
-            skillsDAO.save(skill);
-        } catch (DataIntegrityViolationException e) {
-            skillsDAO.save(skill);
-        }*/
     }
 
     public List<Skill> findAll() {
@@ -38,4 +26,9 @@ public class SkillsService {
     public Skill findId(Long id) {
         return skillsDAO.findById(id).get();
     }
+
+    public void todelete(Long id) {
+        skillsDAO.deleteById(id);
+    }
+
 }
