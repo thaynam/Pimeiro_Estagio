@@ -24,6 +24,8 @@ public class Courses implements Serializable {
     @JoinColumn(name = "id_courses", nullable = true)
     private List<Skill> skills;
 
+    @Column(name = "ID_USER", nullable = false)
+    private Long idUser;
     @Column(name = "NOME", nullable = false)
     private String nome;
     @Column(name = "MODULO", nullable = false)

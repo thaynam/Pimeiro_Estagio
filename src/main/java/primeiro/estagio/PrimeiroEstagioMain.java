@@ -13,7 +13,6 @@ import primeiro.estagio.services.UsuarioService;
 
 import java.util.ArrayList;
 import java.util.List;
-
 @SpringBootApplication
 public class PrimeiroEstagioMain implements CommandLineRunner {
 
@@ -31,7 +30,6 @@ public class PrimeiroEstagioMain implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("Rodando!");
-
         Skill skill = new Skill();
         skill.setNomeSkill("Malabarismo");
         skill.setTipoSkill("Util");
@@ -72,6 +70,5 @@ public class PrimeiroEstagioMain implements CommandLineRunner {
         System.out.println("##############44!!");
 
         System.out.println("##############55!!");
-
     }
 }
