@@ -8,16 +8,21 @@ import primeiro.estagio.entities.Courses;
 import primeiro.estagio.entities.Skill;
 import primeiro.estagio.entities.Usuario;
 import primeiro.estagio.services.CourseService;
+import primeiro.estagio.services.SkillsService;
 import primeiro.estagio.services.UsuarioService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class PrimeiroEstagioMain implements CommandLineRunner {
 
     @Autowired
     private UsuarioService usuarioService;
-
+    @Autowired
+    private CourseService courseService;
+    @Autowired
+    private SkillsService skillsService;
 
     public static void main(String[] args) {
         SpringApplication.run(PrimeiroEstagioMain.class,args);
@@ -27,14 +32,13 @@ public class PrimeiroEstagioMain implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("Rodando!");
 
-
         Skill skill = new Skill();
         skill.setNomeSkill("Malabarismo");
         skill.setTipoSkill("Util");
         skill.setResumoSkill("AAAAHHHH");
         skill.setAvalSkill("10");
         skill.setDataSkill("14/10/2021");
-        ArrayList<Skill> skills = new ArrayList<Skill>();
+        List<Skill> skills = new ArrayList<Skill>();
         skills.add(skill);
 
         Courses course = new Courses();
@@ -43,8 +47,9 @@ public class PrimeiroEstagioMain implements CommandLineRunner {
         course.setInicio("23/09/1993");
         course.setFim("14/10/2021");
         course.setMod("UM");
+        course.setTurno("MANHA");
         course.setSkills(skills);
-        ArrayList<Courses> courses = new ArrayList<Courses>();
+        List<Courses> courses = new ArrayList<Courses>();
         courses.add(course);
 
         Usuario usuario = new Usuario();
@@ -58,7 +63,15 @@ public class PrimeiroEstagioMain implements CommandLineRunner {
         usuario.setTelefone("99999999");
         usuario.setEndereco("Casa X");
         usuario.setCourses(courses);
+        System.out.println("##############22!!");
 
         usuarioService.save(usuario);
+        courseService.save(course);
+        skillsService.save(skill);
+        System.out.println("##############33!!");
+        System.out.println("##############44!!");
+
+        System.out.println("##############55!!");
+
     }
 }
